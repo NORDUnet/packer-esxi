@@ -1,3 +1,4 @@
 builds/
 packer-cache/
 *.iso
+.DS_Store
