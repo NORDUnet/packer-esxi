@@ -15,5 +15,5 @@ Vagrant.configure('2') do |config|
   config.vm.provider "vmware_fusion" do |v|
     v.gui = true
   end
-  config.vm.provision "shell", inline: $harden
+  config.vm.provision "shell", privileged: false, inline: $harden
 end
