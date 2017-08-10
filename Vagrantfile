@@ -1,10 +1,13 @@
+require 'securerandom'
 
 $apiKey = SecureRandom.hex(64)
 $harden = <<SCRIPT
 sed -i '/pam_passwdqc.so/ s/$/ enforce=users/' /etc/pam.d/passwd
-echo "#{$apiKey}" | tee /apikey | passwd root --stdin
+echo "#{$apiKey}" passwd root --stdin
+sed -i '/^exit 0/iAPIKEY=#{apiKey}' /etc/rc.local.d/local.sh
 echo "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config
 /etc/init.d/SSH restart
+/bin/auto-backup.sh
 SCRIPT
 
 Vagrant.configure('2') do |config|
