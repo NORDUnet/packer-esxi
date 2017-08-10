@@ -1,9 +1,9 @@
 require 'securerandom'
 
-$apiKey = SecureRandom.hex(64)
+$apiKey = SecureRandom.hex(32)
 $harden = <<SCRIPT
 sed -i '/pam_passwdqc.so/ s/$/ enforce=users/' /etc/pam.d/passwd
-echo "#{$apiKey}" passwd root --stdin
+echo "#{$apiKey}" | passwd --stdin
 sed -i '/^exit 0/iAPIKEY=#{$apiKey}' /etc/rc.local.d/local.sh
 echo "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config
 /etc/init.d/SSH restart
