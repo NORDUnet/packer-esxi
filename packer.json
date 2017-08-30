@@ -1,14 +1,14 @@
 {
   "builders": [
     {
-      "vm_name": "esxi6.0.0u2",
+      "vm_name": "esxi6.0U3a",
       "type": "vmware-iso",
       "headless": false,
       "disk_size": 2048,
       "disk_additional_size": [ 102400, 102400, 102400, 102400 ],
       "guest_os_type": "vmkernel6",
-      "iso_url": "VMware-VMvisor-Installer-6.0.0.update02-3620759.x86_64.iso",
-      "iso_checksum": "5a93f457980d18f7061c8b550c509682070cadc7",
+      "iso_url": "VMware-VMvisor-Installer-201706001-5572656.x86_64.iso",
+      "iso_checksum": "bc36b0dbcf58bc5db510c4d5c77498c5fd41e847",
       "iso_checksum_type": "sha1",
       "ssh_username": "root",
       "ssh_password": "vagrant",
@@ -42,6 +42,6 @@
     }
   ],
   "variables": {
-    "version": "0.2.0"
+    "version": "0.3.0"
   }
 }
