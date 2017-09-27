@@ -18,12 +18,5 @@ Vagrant.configure('2') do |config|
   config.vm.provider "vmware_fusion" do |v|
     v.gui = true
   end
-  config.vim.provision "shell", privileged: false, inline: <<-SHELL
-    DATASTORE=/dev/disks/mpx.vmhba1\:C0\:T1\:L0
-    partedUtil mklabel $DATASTORE gpt
-    LASTSECTOR=$(partedUtil getUsableSectors $DATASTORE | cut -f2 -d' ')
-    partedUtil setptbl $DATASTORE gpt "1 2048 $LASTSECTOR AA31E02A400F11DB9590000C2911D1B8 0"
-    vmkfstools -C vmfs5 -b 1m -S NIAB_datastore ${DATASTORE}:1
-  SHELL
   config.vm.provision "shell", privileged: false, inline: $harden
 end

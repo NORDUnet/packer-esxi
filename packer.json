@@ -5,7 +5,7 @@
       "type": "vmware-iso",
       "headless": false,
       "disk_size": 2048,
-      "disk_additional_size": [ 102400 ],
+      "disk_additional_size": [ 102400, 102400 ],
       "guest_os_type": "vmkernel6",
       "iso_url": "VMware-VMvisor-Installer-201706001-5572656.x86_64.iso",
       "iso_checksum": "bc36b0dbcf58bc5db510c4d5c77498c5fd41e847",
@@ -42,6 +42,6 @@
     }
   ],
   "variables": {
-    "version": "0.5.0"
+    "version": "0.6.0"
   }
 }
