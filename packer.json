@@ -19,7 +19,8 @@
       "vmx_data": {
         "memsize": "4096",
         "numvcpus": "2",
-        "vhv.enable": "TRUE"
+        "vhv.enable": "TRUE",
+        "virtualHW.version": 14
       },
       "boot_command": [
         "<enter><wait>O<wait> ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter>"
